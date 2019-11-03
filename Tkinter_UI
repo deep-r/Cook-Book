@@ -1,0 +1,48 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Wed Oct 30 21:40:51 2019
+@author: admin
+"""
+
+import tkinter as tk
+from tkinter import ttk
+from Cook_Book import corpus
+window = tk.Tk()
+window.geometry("600x400")
+
+window.title("Welcome to Cook Book! :D")
+enter_ing="Enter your ingredients and we'll suggest dishes you can make today!"
+mylabel = tk.Label(text = enter_ing)
+mylabel.grid(column=2,row=1)
+#mylabel.configure(anchor="center")
+course = corpus
+
+def result():       #add all ingre arg here. This fn calls algo and returns o/p of dishes
+#    print(" Here's what you can make today !")
+    l2=tk.Label(text = "Here's what you can make today !")
+    l2.grid(column=2, row=17)
+    l2.configure(anchor="center")
+
+i=0
+while i<10:
+    status=False
+    cb=ttk.Combobox(window,values=course,width=50)
+    cb.grid(column=2, row=4+i)
+    print("opt:", cb.get())
+    i+=2
+
+mybutton = tk.Button(window, text = "Suggest Dishes",command=result)
+#b=Button(win,text="Click Here",command=func)
+mybutton.grid(column=2,row=i+5)
+#mybutton.configure(anchor="center")
+
+#b = tk.Button(window, text = "Add more",command=cont)
+#b.grid(column=3,row=5)
+
+#def add_cb(i):
+#    cb=ttk.Combobox(window,values=course,width=50)
+#    cb.grid(column=2, row=4+i)
+
+window.mainloop()
+
+
